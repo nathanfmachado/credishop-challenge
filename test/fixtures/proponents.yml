@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  cpf: MyString
+  birth_date: 2022-01-30
+  salary: 1.5
+  inss_discount: 1.5
+
+two:
+  name: MyString
+  cpf: MyString
+  birth_date: 2022-01-30
+  salary: 1.5
+  inss_discount: 1.5

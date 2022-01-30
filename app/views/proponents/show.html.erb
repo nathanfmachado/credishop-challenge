@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @proponent.name %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @proponent.cpf %>
+</p>
+
+<p>
+  <strong>Birth date:</strong>
+  <%= @proponent.birth_date %>
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= @proponent.salary %>
+</p>
+
+<p>
+  <strong>Inss discount:</strong>
+  <%= @proponent.inss_discount %>
+</p>
+
+<%= link_to 'Edit', edit_proponent_path(@proponent) %> |
+<%= link_to 'Back', proponents_path %>
