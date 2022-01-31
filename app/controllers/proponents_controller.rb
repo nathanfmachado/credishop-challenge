@@ -14,6 +14,9 @@ class ProponentsController < ApplicationController
   def new
     @proponent = Proponent.new
     @proponent.addresses.build
+
+    @states = State.all
+    @phone_type_enum = PhoneTypeEnum.to_a
   end
 
   # GET /proponents/1/edit
@@ -72,6 +75,9 @@ class ProponentsController < ApplicationController
         :name, :cpf, :birth_date, :salary, :inss_discount,
         addresses_attributes: [
           :street, :number, :neighborhood, :city, :state_id, :cep
+        ],
+        contacts_attributes: [
+          :phone, :phone_type
         ]
       )
     end

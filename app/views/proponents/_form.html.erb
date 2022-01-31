@@ -1,4 +1,4 @@
-<%= simple_form_for @proponent do |form| %>
+<%= simple_form_for @proponent do |f| %>
   <% if @proponent.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@proponent.errors.count, "error") %> prohibited this proponent from being saved:</h2>
@@ -12,28 +12,39 @@
   <% end %>
 
   <div class="field">
-    <%= form.input :name %>
+    <%= f.input :name %>
   </div>
 
   <div class="field">
-    <%= form.input :cpf %>
+    <%= f.input :cpf %>
   </div>
 
   <div class="field">
-    <%= form.input :birth_date %>
+    <%= f.input :birth_date %>
   </div>
 
   <div class="field">
-    <%= form.input :salary %>
+    <%= f.input :salary %>
   </div>
 
   <div class="field">
-    <%= form.input :inss_discount %>
+    <%= f.input :inss_discount %>
   </div>
 
-  <%= render 'form_address', form: form %>
+
+  <%= render 'address_fields', f: f %>
+
+  <div id="contacts">
+    <%= f.simple_fields_for :contacts do |contact_form| %>
+      <%= render 'contact_fields', f: contact_form %>
+    <% end %>
+
+    <div class="links">
+      <%= link_to_add_association 'Adicionar Contato', f, :contacts %>
+    </div>
+  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
