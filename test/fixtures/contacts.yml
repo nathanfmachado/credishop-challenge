@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  proponent: one
+  phone: MyString
+  phone_type: 1
+
+two:
+  proponent: two
+  phone: MyString
+  phone_type: 1
