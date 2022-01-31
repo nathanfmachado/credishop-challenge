@@ -16,4 +16,5 @@ Rails.application.routes.draw do
     end
   end
   
+  root to: 'proponents#index'
 end

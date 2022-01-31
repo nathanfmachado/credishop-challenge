@@ -5,5 +5,7 @@ class Proponent < ApplicationRecord
   accepts_nested_attributes_for :addresses, allow_destroy: true
   accepts_nested_attributes_for :contacts, allow_destroy: true
 
+  validates :name, :birth_date, :salary, :inss_discount, presence: true
+
   paginates_per 5
 end
