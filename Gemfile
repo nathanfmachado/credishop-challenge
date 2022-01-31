@@ -42,6 +42,10 @@ gem 'tty-spinner'
 gem 'simple_form'
 # Internatiolization and translations
 gem 'rails-i18n', '~> 5.1'
+# Dynamic nested forms
+gem 'cocoon'
+# Easy Enumerator helper
+gem 'enumerate_it'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
