@@ -33,7 +33,7 @@ states = [
   { name: "Santa Catarina", uf: "SC" },
   { name: "São Paulo", uf: "SP" },
   { name: "Sergipe", uf: "SE" },
-  { name: "Tocantins", uf: "TO" },
+  { name: "Tocantins", uf: "TO" }
 ]
 
 states.each do |state|

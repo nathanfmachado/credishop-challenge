@@ -310,6 +310,7 @@ DEPENDENCIES
   rails (~> 5.2.6)
   rails-i18n (~> 5.1)
   redis-rails
+  rubocop
   rubocop-rails
   sass-rails (~> 5.0)
   selenium-webdriver
