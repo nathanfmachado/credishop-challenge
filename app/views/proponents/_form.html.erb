@@ -10,37 +10,42 @@
       </ul>
     </div>
   <% end %>
+  <div class="row" >
+    <div class="column pr-5" >
+      <div class="field">
+        <%= f.input :name, input_html: { class: "form-control" } %>
+      </div>
 
-  <div class="field">
-    <%= f.input :name %>
-  </div>
+      <div class="field">
+        <%= f.input :cpf, input_html: { class: "form-control" }  %>
+      </div>
 
-  <div class="field">
-    <%= f.input :cpf %>
-  </div>
+      <div class="field">
+        <%= f.input :birth_date, input_html: { class: "form-control" }  %>
+      </div>
 
-  <div class="field">
-    <%= f.input :birth_date %>
-  </div>
+      <div class="field">
+        <%= f.input :salary, input_html: { class: "form-control" }  %>
+      </div>
 
-  <div class="field">
-    <%= f.input :salary %>
-  </div>
+      <div class="field">
+        <%= f.input :inss_discount, disabled: true, input_html: { class: "form-control" }  %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.input :inss_discount, disabled: true %>
-  </div>
+    <div class="column px-5 mx-3" >
+      <%= render 'address_fields', f: f %>
+    </div>
+    <div class="column pl-5" >
+      <div id="contacts">
+        <%= f.simple_fields_for :contacts do |contact_form| %>
+          <%= render 'contact_fields', f: contact_form %>
+        <% end %>
 
-
-  <%= render 'address_fields', f: f %>
-
-  <div id="contacts">
-    <%= f.simple_fields_for :contacts do |contact_form| %>
-      <%= render 'contact_fields', f: contact_form %>
-    <% end %>
-
-    <div class="links">
-      <%= link_to_add_association 'Adicionar Contato', f, :contacts %>
+        <div class="links">
+          <%= link_to_add_association 'Adicionar Contato', f, :contacts %>
+        </div>
+      </div>
     </div>
   </div>
 

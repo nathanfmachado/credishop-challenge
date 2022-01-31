@@ -1,35 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Proponents</h1>
+<h1>
+  <%= Proponent.model_name.human(count: 2) %>
+  <a href="<%=new_proponent_path%>">
+    <button class="btn btn-pill btn-primary">
+      <strong><i class="fa fa-plus" aria-hidden="true"></i> Novo Pedido</strong>
+    </button>
+  </a>
+</h1>
 
-<table>
+<br/>
+<table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Cpf</th>
-      <th>Birth date</th>
-      <th>Salary</th>
-      <th>Inss discount</th>
+      <th><%= Proponent.human_attribute_name('name') %></th>
+      <th><%= Proponent.human_attribute_name('cpf') %></th>
+      <th><%= Proponent.human_attribute_name('salary') %></th>
+      <th><%= Proponent.human_attribute_name('inss_discount') %></th>
+      <th><%= Proponent.human_attribute_name('birth_date') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="proponents">
     <% @proponents.each do |proponent| %>
       <tr>
         <td><%= proponent.name %></td>
         <td><%= proponent.cpf %></td>
-        <td><%= proponent.birth_date %></td>
-        <td><%= proponent.salary %></td>
-        <td><%= proponent.inss_discount %></td>
-        <td><%= link_to 'Show', proponent %></td>
-        <td><%= link_to 'Edit', edit_proponent_path(proponent) %></td>
-        <td><%= link_to 'Destroy', proponent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= number_to_currency(proponent.salary) %></td>
+        <td><%= number_to_currency(proponent.inss_discount) %></td>
+        <td><%= I18n.l proponent.birth_date %></td>
+        <td>
+          <div class="input-group-prepend">
+            <button data-toggle="dropdown" type="button" class="btn btn-outline-secondary dropdown-toggle">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu">
+              <%= link_to 'Visualizar', proponent_path(proponent), class:'dropdown-item' %>
+              <%= link_to 'Editar', edit_proponent_path(proponent), class:'dropdown-item' %>
+              <div class="dropdown-divider"></div>
+              <%= link_to 'Excluir', proponent, method: :delete, class:'dropdown-item', data: { confirm: 'Você tem certeza que deseja excluir este Proponente?' } %>
+            </div>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Proponent', new_proponent_path %>
+<div class="d-flex justify-content-center mt-5">
+  <%= paginate @proponents %>
+</div>

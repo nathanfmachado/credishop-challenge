@@ -5,11 +5,94 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://paper-house.s3-sa-east-1.amazonaws.com/system/css/app.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <nav id="sidebar" class="sidebar">
+        <div class="sidebar-content js-simplebar">
+          <ul class="sidebar-nav">
+
+            <li class="sidebar-header">
+              Sistema
+            </li>
+            <li class="sidebar-item">
+              <a href="#categories-dropdown" data-toggle="collapse" class="sidebar-link collapsed">
+                <i class="align-middle" data-feather="user"></i> <span class="align-middle">Proponentes</span>
+              </a>
+              <ul id="categories-dropdown" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                <li class="sidebar-item"><a class="sidebar-link" href="<%=proponents_path%>" title="Todos">Todos</a></li>
+                <li class="sidebar-item"><a class="sidebar-link" href="<%=new_proponent_path%>" title="Nova Proponente">Novo Proponente</a></li>
+              </ul>
+            </li>
+
+
+            <li class="sidebar-item">
+              <a href="#products-dropdown" data-toggle="collapse" class="sidebar-link collapsed">
+                <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Relatórios</span>
+              </a>
+              <ul id="products-dropdown" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                <li class="sidebar-item"><a class="sidebar-link" href="#" title="Faixas Salariais">Faixas Salariais</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+
+      <div class="main">
+      
+        <div id=main-nav class="navbar-fixed-top" role=navigation style='top:110px'>
+          <div class='container text-center'>
+
+          <% flash.each do |key, value| %>
+            <% alert_class = case key
+                            when "notice" then "success"
+                            when "alert" then "danger"
+                            else key
+                            end %>
+            <%= content_tag :div,value, class: "alert alert-#{alert_class} alert-dismissible" do %>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+              <div class="alert-icon">
+                <i class="far fa-fw fa-bell"></i>
+              </div>
+              <div class="alert-message">
+                <%= value %>
+              </div>
+            <% end %>
+          <% end %>
+
+          </div>
+        </div>
+        
+
+
+        <main class="content">
+          <div class="container-fluid p-0">
+            <%=yield%>
+          </div>
+        </main>
+
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row text-muted">
+              <div class="col-6 text-left">
+                <p class="mb-0">
+                  <a href="#" class="text-muted"><strong>© 2022 Credishop Challenge - Nathan Fabiano Machado</strong></a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="https://paper-house.s3-sa-east-1.amazonaws.com/system/js/app.js"></script>
+
   </body>
 </html>

@@ -1,27 +1,27 @@
 <%= f.simple_fields_for :addresses do |address_form| %>
   <h3><%= Address.model_name.human %></h3>
   <div class="field">
-    <%= address_form.input :street %>
+    <%= address_form.input :street, input_html: { class: "form-control" }  %>
   </div>
 
   <div class="field">
-    <%= address_form.input :number %>
+    <%= address_form.input :number, input_html: { class: "form-control" }  %>
   </div>
 
   <div class="field">
-    <%= address_form.input :neighborhood %>
+    <%= address_form.input :neighborhood, input_html: { class: "form-control" }  %>
   </div>
 
   <div class="field">
-    <%= address_form.input :city %>
+    <%= address_form.input :city, input_html: { class: "form-control" }  %>
   </div>
 
   <div class="field">
-    <%= address_form.input :state_id, collection: @states %>
+    <%= address_form.input :state_id, collection: @states, input_html: { class: "form-control" }  %>
   </div>
 
   <div class="field">
-    <%= address_form.input :cep %>
+    <%= address_form.input :cep, input_html: { class: "form-control" }  %>
   </div>
 
 <% end %>

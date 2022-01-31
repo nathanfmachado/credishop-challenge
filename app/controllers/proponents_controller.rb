@@ -3,7 +3,7 @@ class ProponentsController < ApplicationController
 
   # GET /proponents or /proponents.json
   def index
-    @proponents = Proponent.all
+    @proponents = Proponent.all.page(params[:page])
   end
 
   # GET /proponents/1 or /proponents/1.json
@@ -73,6 +73,8 @@ class ProponentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_proponent
       @proponent = Proponent.find(params[:id])
+      @address = @proponent.addresses
+      @contacts = @proponent.contacts
     end
 
     # Only allow a list of trusted parameters through.
