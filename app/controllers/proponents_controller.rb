@@ -13,6 +13,7 @@ class ProponentsController < ApplicationController
   # GET /proponents/new
   def new
     @proponent = Proponent.new
+    @proponent.addresses.build
   end
 
   # GET /proponents/1/edit
@@ -65,6 +66,13 @@ class ProponentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def proponent_params
-      params.require(:proponent).permit(:name, :cpf, :birth_date, :salary, :inss_discount)
+      params.
+      require(:proponent).
+      permit(
+        :name, :cpf, :birth_date, :salary, :inss_discount,
+        addresses_attributes: [
+          :street, :number, :neighborhood, :city, :state_id, :cep
+        ]
+      )
     end
 end

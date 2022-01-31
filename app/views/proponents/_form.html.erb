@@ -1,10 +1,10 @@
-<%= form_with(model: proponent, local: true) do |form| %>
-  <% if proponent.errors.any? %>
+<%= simple_form_for @proponent do |form| %>
+  <% if @proponent.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(proponent.errors.count, "error") %> prohibited this proponent from being saved:</h2>
+      <h2><%= pluralize(@proponent.errors.count, "error") %> prohibited this proponent from being saved:</h2>
 
       <ul>
-      <% proponent.errors.full_messages.each do |message| %>
+      <% @proponent.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,29 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.input :name %>
   </div>
 
   <div class="field">
-    <%= form.label :cpf %>
-    <%= form.text_field :cpf %>
+    <%= form.input :cpf %>
   </div>
 
   <div class="field">
-    <%= form.label :birth_date %>
-    <%= form.date_select :birth_date %>
+    <%= form.input :birth_date %>
   </div>
 
   <div class="field">
-    <%= form.label :salary %>
-    <%= form.text_field :salary %>
+    <%= form.input :salary %>
   </div>
 
   <div class="field">
-    <%= form.label :inss_discount %>
-    <%= form.text_field :inss_discount %>
+    <%= form.input :inss_discount %>
   </div>
+
+  <%= render 'form_address', form: form %>
 
   <div class="actions">
     <%= form.submit %>

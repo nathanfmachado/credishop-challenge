@@ -233,6 +233,9 @@ GEM
       rack (~> 2.0)
       rack-protection (>= 2.0.0)
       redis (>= 4.1.0)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -294,6 +297,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   sidekiq
+  simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
   tty-spinner
