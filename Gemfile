@@ -40,6 +40,8 @@ gem 'devise'
 gem 'tty-spinner'
 # Forms with simple and clean helpers
 gem 'simple_form'
+# Internatiolization and translations
+gem 'rails-i18n', '~> 5.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

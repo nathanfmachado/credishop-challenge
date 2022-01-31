@@ -1,0 +1,65 @@
+'pt-BR':
+  activerecord:
+    models:
+
+      user:
+        one: Usuário
+        other: Usuários
+
+      proponent:
+        one: Proponente
+        other: Proponentes
+
+      address:
+        one: Endereço
+        other: Endereços
+
+      contact:
+        one: Contato
+        other: Contatos
+
+      state:
+        one: Estado
+        other: Estados
+
+    attributes:
+
+      user:
+        email: E-mail
+        encrypted_password: Senha
+        created_at: Criado em
+        updated_at: Atualizado em
+
+      proponent:
+        name: Nome
+        cpf: CPF
+        birth_date: Data de Nascimento
+        salary: Salário
+        inss_discount: Desconto do INSS
+        created_at: Criado em
+        updated_at: Atualizado em
+
+      address:
+        street: Rua
+        number: Número
+        neighborhood: Bairro
+        city: Cidade
+        state_id: Estado
+        proponent_id: Proponente
+        cep: CEP
+        created_at: Criado em
+        updated_at: Atualizado em
+
+      contact:
+        proponent_id: Proponente
+        phone: Telefone
+        phone_type: Tipo
+        created_at: Criado em
+        updated_at: Atualizado em
+
+      state:
+        name: Nome
+        uf: UF
+        created_at: Criado em
+        updated_at: Atualizado em
+        
