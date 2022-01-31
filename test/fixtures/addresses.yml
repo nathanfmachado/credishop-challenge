@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  proponent: one
+  street: MyString
+  number: MyString
+  neighborhood: MyString
+  city: MyString
+  state: one
+  cep: MyString
+
+two:
+  proponent: two
+  street: MyString
+  number: MyString
+  neighborhood: MyString
+  city: MyString
+  state: two
+  cep: MyString
