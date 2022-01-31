@@ -14,6 +14,7 @@ class ProponentsController < ApplicationController
   def new
     @proponent = Proponent.new
     @proponent.addresses.build
+    2.times { @proponent.contacts.build }
 
     @states = State.all
     @phone_type_enum = PhoneTypeEnum.to_a
@@ -48,6 +49,13 @@ class ProponentsController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @proponent.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def calculate_inss_discount
+    if params['salary'].present?
+      inss_discount = CalculateInssDiscountJob.perform_now(params['salary'].to_f)
+      render json: {inss_discount: inss_discount}.to_json
     end
   end
 
