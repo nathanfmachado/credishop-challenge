@@ -38,6 +38,7 @@
         inss_discount: Desconto do INSS
         created_at: Criado em
         updated_at: Atualizado em
+        general_data: Dados Gerais
 
       address:
         street: Rua

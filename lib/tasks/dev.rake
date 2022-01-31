@@ -49,7 +49,7 @@ namespace :dev do
       rand(1..4).times do |i|
         Contact.create!(
           proponent_id: proponent.id,
-          phone:        Faker::Address.street_address,
+          phone:        Faker::PhoneNumber.phone_number,
           phone_type:   rand(1..2)
         )
       end

@@ -1,0 +1,24 @@
+<p>
+  <strong><%= Address.human_attribute_name('street') %>:</strong>
+  <%= "#{address.street} - nº #{address.number}" %>
+</p>
+
+<p>
+  <strong><%= Address.human_attribute_name('neighborhood') %>:</strong>
+  <%= address.neighborhood %>
+</p>
+
+<p>
+  <strong><%= Address.human_attribute_name('city') %>:</strong>
+  <%= address.city %>
+</p>
+
+<p>
+  <strong><%= State.human_attribute_name('state') %>:</strong>
+  <%= "#{address.state.name} - #{address.state.uf}" %>
+</p>
+
+<p>
+  <strong><%= Address.human_attribute_name('cep') %>:</strong>
+  <%= address.cep %>
+</p>

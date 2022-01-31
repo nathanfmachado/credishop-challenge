@@ -1,29 +1,40 @@
 <p id="notice"><%= notice %></p>
 
+<h3><%= Proponent.human_attribute_name('general_data') %></h3>
 <p>
-  <strong>Name:</strong>
+  <strong><%= Proponent.human_attribute_name('name') %>:</strong>
   <%= @proponent.name %>
 </p>
 
 <p>
-  <strong>Cpf:</strong>
+  <strong><%= Proponent.human_attribute_name('cpf') %>:</strong>
   <%= @proponent.cpf %>
 </p>
 
 <p>
-  <strong>Birth date:</strong>
-  <%= @proponent.birth_date %>
+  <strong><%= Proponent.human_attribute_name('birth_date') %>:</strong>
+  <%= l @proponent.birth_date %>
 </p>
 
 <p>
-  <strong>Salary:</strong>
-  <%= @proponent.salary %>
+  <strong><%= Proponent.human_attribute_name('salary') %>:</strong>
+  <%= number_to_currency @proponent.salary %>
 </p>
 
 <p>
-  <strong>Inss discount:</strong>
-  <%= @proponent.inss_discount %>
+  <strong><%= Proponent.human_attribute_name('inss_discount') %>:</strong>
+  <%= number_to_currency @proponent.inss_discount %>
 </p>
+
+<h3 class="mt-4"><%= Address.model_name.human(count: @proponent.addresses.count) %></h3>
+<% @proponent.addresses.each do |address| %>
+  <%= render 'show_address', address: address %>
+<% end %>
+
+<h3 class="mt-4"><%= Contact.model_name.human(count: @proponent.contacts.count) %></h3>
+<% @proponent.contacts.each_with_index do |contact, i| %>
+  <%= render 'show_contact', contact: contact, index: i %>
+<% end %>
 
 <%= link_to 'Edit', edit_proponent_path(@proponent) %> |
 <%= link_to 'Back', proponents_path %>
