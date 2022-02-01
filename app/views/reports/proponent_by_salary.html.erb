@@ -1,1 +1,9 @@
-<%= pie_chart @salary_ranges %>
+<h2 class="m-4">Relatório de Proponentes por faixa Salarial</h2>
+<div class="row mt-5">
+  <div class="col-7">
+    <%= line_chart @salary_ranges, height: "360px" %>
+  </div>
+  <div class="col-5">
+    <%= pie_chart @salary_ranges, height: "360px" %>
+  </div>
+</div>
