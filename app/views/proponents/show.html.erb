@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h3><%= Proponent.human_attribute_name('general_data') %></h3>
 <p>
   <strong><%= Proponent.human_attribute_name('name') %>:</strong>
@@ -36,5 +34,5 @@
   <%= render 'show_contact', contact: contact, index: i %>
 <% end %>
 
-<%= link_to 'Edit', edit_proponent_path(@proponent) %> |
-<%= link_to 'Back', proponents_path %>
+<%= link_to 'Editar', edit_proponent_path(@proponent) %> |
+<%= link_to 'Voltar', proponents_path %>

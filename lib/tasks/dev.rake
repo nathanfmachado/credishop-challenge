@@ -1,6 +1,6 @@
-namespace :dev do
-  DEFAULT_PASSWORD = "123456"
+DEFAULT_PASSWORD = "123456".freeze
 
+namespace :dev do
   desc "Set the development environment up"
   task setup: :environment do
     if Rails.env.development?
@@ -26,7 +26,7 @@ namespace :dev do
 
   desc "Populate Proponents, Addresses and Contacts with fake data"
   task faker_populate: :environment do
-    20.times do |i|
+    20.times do
       salary = rand(500...8500)
       inss_discount = CalculateInssDiscountJob.perform_now(salary.to_f)
       proponent = Proponent.create!(
@@ -46,7 +46,7 @@ namespace :dev do
         state_id:     rand(1..27),
         cep:          Faker::Address.zip_code
       )
-      rand(1..4).times do |i|
+      rand(1..4).times do
         Contact.create!(
           proponent_id: proponent.id,
           phone:        Faker::PhoneNumber.phone_number,

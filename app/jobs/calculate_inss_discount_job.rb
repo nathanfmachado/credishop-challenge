@@ -2,7 +2,7 @@ class CalculateInssDiscountJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
-    return calculate_inss_discount(args[0])
+    calculate_inss_discount(args[0])
   end
 
   private
@@ -15,12 +15,12 @@ class CalculateInssDiscountJob < ApplicationJob
     inss_discount = 0
 
     aliquots.each_with_index do |aliquot, index|
-      if current_salary > min_limits[index]
-        diff = current_salary - min_limits[index]
-        inss_discount += diff * aliquot
-        current_salary = min_limits[index]
-      end
+      next unless current_salary > min_limits[index]
+
+      diff = current_salary - min_limits[index]
+      inss_discount += diff * aliquot
+      current_salary = min_limits[index]
     end
-    return inss_discount.round(2)
+    inss_discount.round(2)
   end
 end

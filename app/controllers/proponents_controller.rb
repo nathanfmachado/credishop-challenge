@@ -29,7 +29,9 @@ class ProponentsController < ApplicationController
 
     respond_to do |format|
       if @proponent.save
-        format.html { redirect_to proponent_url(@proponent), notice: "Proponente criado com Sucesso!" }
+        format.html do
+          redirect_to proponent_url(@proponent), notice: "Proponente criado com Sucesso!"
+        end
         format.json { render :show, status: :created, location: @proponent }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +44,9 @@ class ProponentsController < ApplicationController
   def update
     respond_to do |format|
       if @proponent.update(proponent_params)
-        format.html { redirect_to proponent_url(@proponent), notice: "Proponente atualizado com Sucesso!." }
+        format.html do
+          redirect_to proponent_url(@proponent), notice: "Proponente atualizado com Sucesso!."
+        end
         format.json { render :show, status: :ok, location: @proponent }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +56,7 @@ class ProponentsController < ApplicationController
   end
 
   def calculate_inss_discount
-    return unless params["salary"].present?
+    return if params["salary"].blank?
 
     inss_discount = CalculateInssDiscountJob.perform_now(params["salary"].to_f)
     render json: { inss_discount: inss_discount }.to_json
