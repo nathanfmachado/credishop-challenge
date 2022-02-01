@@ -1,0 +1,36 @@
+<nav id="sidebar" class="sidebar">
+  <div class="sidebar-content js-simplebar">
+    <ul class="sidebar-nav">
+
+      <li class="sidebar-header">
+        Sistema
+      </li>
+      <li class="sidebar-item">
+        <a href="#categories-dropdown" data-toggle="collapse" class="sidebar-link collapsed">
+          <i class="align-middle" data-feather="user"></i> <span class="align-middle">Proponentes</span>
+        </a>
+        <ul id="categories-dropdown" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+          <li class="sidebar-item"><a class="sidebar-link" href="<%=proponents_path%>" title="Todos">Todos</a></li>
+          <li class="sidebar-item"><a class="sidebar-link" href="<%=new_proponent_path%>" title="Nova Proponente">Novo Proponente</a></li>
+        </ul>
+      </li>
+
+
+      <li class="sidebar-item">
+        <a href="#products-dropdown" data-toggle="collapse" class="sidebar-link collapsed">
+          <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Relatórios</span>
+        </a>
+        <ul id="products-dropdown" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+          <li class="sidebar-item"><a class="sidebar-link" href="<%=proponent_by_salary_reports_path%>" title="Faixas Salariais">Faixas Salariais</a></li>
+        </ul>
+      </li>
+
+      <li class="sidebar-item">
+        <%=link_to destroy_user_session_path, method: :delete, class: "sidebar-link" do %>
+          <i class="align-middle" data-feather="log-out"></i> <span class="align-middle">Sair</span>
+        <% end %>
+      </li>
+
+    </ul>
+  </div>
+</nav>

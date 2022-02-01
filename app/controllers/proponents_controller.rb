@@ -1,4 +1,5 @@
 class ProponentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_proponent, only: %i[show edit update destroy]
 
   # GET /proponents or /proponents.json
