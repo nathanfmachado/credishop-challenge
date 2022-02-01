@@ -47,7 +47,7 @@
 * Foi utilizado sistema de autenticação básica com Devise (signin, signup, logout). Usuário padrão: admin@admin.com | 123456
 * Caso o calculo do desconto de INSS não esteja funcionando no formulário do Proponente, verifique se o redis está de pé (redis-server). O calculo do INSS é feito assim que o blur do input de Salário acontece.
 
-#### - Falhas (Requisitos ou melhorias que não foram desenvolvidas)
+#### - Requisitos ou melhorias que não foram desenvolvidas
 
 * Devido a falta de tempo, algumas features não foram desenvolvidas ou ficaram com problemas, como:
   - Testes
