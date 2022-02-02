@@ -60,5 +60,6 @@
   - Informações segmentadas em várias tabelas, para que um Proponente possa ter vários contatos e/ou endereços
   - Adição dinâmica de contatos no formulário do Proponente, caso ele possua muitos contatos (não esta refinado)
   - Utilização de .env para centralizar variáveis de ambiente em um único arquivo e facilitar setup de ambientes de test, homologação e produção
+  - Internacionalização com I18n de algumas features.
 
 #### - Dúvidas? Sinta-se a vontade para me contactar: nathanfabiano@hotmail.com
